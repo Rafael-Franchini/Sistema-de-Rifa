@@ -1,9 +1,9 @@
 $(function(){
     
         $.ajax({
-            url: "listar.php",
+            url: "sortear.php",
         }).done(function(data){
-            $('.conteudo').html(data);
+            $('.sort').html(data);
         });
     
 });

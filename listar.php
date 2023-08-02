@@ -6,7 +6,9 @@
 	$conn = new mysqli($server,$username,"");
 	mysqli_select_db($conn,"rifa");
 	$resultado = mysqli_query($conn,"select * from tabela order by numero");
+	$resultadop = mysqli_query($conn,"select * from tabela where situacao='PAGO'");
 	$total=mysqli_num_rows($resultado);
+	$totalp=mysqli_num_rows($resultadop);
 	mysqli_close($conn);
 ?>
 <!DOCTYPE html>
@@ -21,7 +23,10 @@
 		</tr>
 	<?php 
 	$valor=$total*5;
+	$valor2=$totalp*5;
 	echo("$total rifas vendidas total R$ $valor,00");
+	echo("<br>");
+	echo("$totalp rifas pagas total R$ $valor2,00");
 	
 	while($linha = mysqli_fetch_array($resultado)){
 		$numero = $linha["numero"];
