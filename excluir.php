@@ -1,17 +1,25 @@
 <?php
-	//Visibilidade dos erros
-	@ini_set('display_errors','1');
-	error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
-	//construção da string de conexão.
-	$server="localhost:3306";
-	$username="root";
-	$conn=new mysqli($server,$username,"");
-	mysqli_select_db($conn,"rifa");
-	// Pegar por GET
-	$id = $_GET["id"];
-	settype($id,"integer");
-	// Delete SQL
-	mysqli_query($conn,"delete from tabela where numero = $id");
-	mysqli_close($conn);
-	header("Location: index.html");
+require 'config.php';
+$id = isset($_GET['id']) ? $_GET['id'] : null;
+
+if ($id !== null && is_numeric($id)) {
+    $id = (int) $id;
+
+ 
+    $stmt = $conn->prepare("DELETE FROM tabela WHERE numero = ?");
+    $stmt->bind_param("i", $id);
+    if ($stmt->execute()) {
+        echo "Registro excluído com sucesso!";
+    } else {
+        echo "Erro ao excluir o registro: " . $stmt->error;
+    }
+
+ 
+    $stmt->close();
+} else {
+    echo "ID inválido ou não fornecido.";
+}
+$conn->close();
+header("Location: index.html");
+exit();
 ?>
