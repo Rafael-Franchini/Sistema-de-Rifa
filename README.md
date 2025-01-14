@@ -16,6 +16,11 @@ Este é um sistema de rifa simples desenvolvido com **HTML**, **Bootstrap**, **J
 - **Interface Amigável:**
   - Interface responsiva e intuitiva.
   - Visualização clara da lista de participantes e dos resultados dos sorteios.
+# Resultado
+
+
+https://github.com/user-attachments/assets/640d6bb1-c0b1-4d33-b615-5d2ef6524f8f
+
 
 ## Tecnologias Utilizadas
 - **Frontend:**
@@ -29,9 +34,11 @@ Este é um sistema de rifa simples desenvolvido com **HTML**, **Bootstrap**, **J
 - **Banco de Dados:**
   - MySQL para armazenamento de participantes e resultados
 
+Preview
+
 ## Pré-requisitos
 Para executar este projeto, você precisará de:
-- Servidor Web  Apache.
+- Servidor Web  Apache (XAMP).
 - PHP.
 - Banco de Dados MySQL.
 - Navegador atualizado.
