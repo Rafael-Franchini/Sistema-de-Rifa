@@ -27,33 +27,95 @@ if ($id !== null && is_numeric($id)) {
 // Fecha a conexão com o banco de dados
 $conn->close();
 ?>
+
 <!DOCTYPE html>
-<head><title>Editar</title><meta charset="utf-8"/></head>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <title>Editar</title>
+    <style>
+        /* Adicionando estilos para melhorar a aparência do formulário */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fa;
+            margin: 0;
+            padding: 0;
+        }
+        .form-container {
+            width: 60%;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
 <body>
-    <form id="form1" name="form1" method="post" action="salvar_edicao.php">
-        <input type="hidden" name="id" id="id" value="<?php echo $id;?>"/>
-        <table width="440" border="1" align="center">
-            <tr>
-                <td width="165">Nome</td>
-                <td width="380"><input name="nome" type="text" id="nome"
-                value="<?php echo htmlspecialchars($dados["nome"]);?>"/></td>
-            </tr>
-            <tr>
-                <td>Numero</td>
-                <td><input name="numero" type="text" id="numero"
-                value="<?php echo htmlspecialchars($dados["numero"]);?>"/></td>
-            </tr>
-            <tr>
-                <td>Situação</td>
-                <td><input name="situacao" type="text" id="situacao"
-                value="<?php echo htmlspecialchars($dados["situacao"]);?>"/></td>
-            </tr>
-            <tr>
-                <td>Ação:</td>
-                <td><input type="submit" name="submit" value="Gravar" 
-                style="cursor:pointer"/></td>
-            </tr>
-        </table>
-    </form>
+
+    <div class="form-container">
+        <h2>Editar Registro</h2>
+        <form id="form1" name="form1" method="post" action="salvar_edicao.php">
+            <input type="hidden" name="id" value="<?php echo $id;?>"/>
+            <table>
+                <tr>
+                    <td>Nome:</td>
+                    <td><input type="text" name="nome" value="<?php echo htmlspecialchars($dados["nome"]); ?>"/></td>
+                </tr>
+                <tr>
+                    <td>Número:</td>
+                    <td><input type="text" name="numero" value="<?php echo htmlspecialchars($dados["numero"]); ?>"/></td>
+                </tr>
+                <tr>
+                    <td>Situação:</td>
+                    <td><input type="text" name="situacao" value="<?php echo htmlspecialchars($dados["situacao"]); ?>"/></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center;">
+                        <input type="submit" name="submit" value="Gravar Edição"/>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
 </body>
 </html>

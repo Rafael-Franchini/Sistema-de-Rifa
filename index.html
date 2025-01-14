@@ -58,7 +58,19 @@
           </div>
           <div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab"> 
             <div class="sort">
-
+              <div class="container text-center mt-5">
+                <h2 class="mb-4">Realize o Sorteio!</h2>
+                <!-- Botão de Sorteio -->
+                <button id="sorteioButton" class="btn btn-primary btn-lg">Sorteio!</button>
+            
+                <!-- Área onde o vencedor será exibido -->
+                <div id="vencedor" class="alert alert-success mt-3" style="display: none;">
+                    <h4 class="alert-heading">O Vencedor é:</h4>
+                    <p id="vencedorNome" class="lead"></p>
+                    <p id="vencedorNumero"></p>
+                    <p id="vencedorSituacao"></p>
+                </div>
+            </div>
             </div>
           </div>
         </div>
